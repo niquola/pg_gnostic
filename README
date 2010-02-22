@@ -1,0 +1,17 @@
+PgGnostic
+=========
+
+Introduction goes here.
+
+
+Install
+=======
+
+To install rake tasks u need add lines into  RAILS_ROOT/Rakefile
+
+  require 'pg_gnostic'
+  require 'pg_gnostic/tasks'
+
+
+
+Copyright (c) 2010 [name of plugin creator], released under the MIT license
