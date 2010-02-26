@@ -1,17 +1,16 @@
 PgGnostic
 =========
 
-Introduction goes here.
-
+hacke like rails and postgres integration 
 
 Install
 =======
 
-To install rake tasks u need add lines into  RAILS_ROOT/Rakefile
+To install pg_gnostic rake tasks u need add lines into  RAILS_ROOT/Rakefile
 
   require 'pg_gnostic'
   require 'pg_gnostic/tasks'
 
 
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 [nicola], released under the MIT license

@@ -1,0 +1,6 @@
+adapter: postgresql
+host: localhost
+database: unittest_pg_gnostic
+username: postgres
+password: postgres
+encoding: utf8
