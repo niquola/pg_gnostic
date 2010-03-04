@@ -26,6 +26,12 @@ class GeneratorTest < ActiveSupport::TestCase
     IO.readlines("#{fake_rails_root}/#{path}",'').to_s
   end
 
+  def assert_file(file)
+    assert_block "File #{file} not exists, as not expected" do
+      File.exists? "#{fake_rails_root}/#{file}"
+    end
+  end
+
   def setup
     FileUtils.rm_r(fake_rails_root)
     FileUtils.mkdir_p(fake_rails_root)
