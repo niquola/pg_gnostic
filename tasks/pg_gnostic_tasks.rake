@@ -3,7 +3,7 @@ namespace :pg do
   desc "drop views"
   task :drop_views=>:environment do
     #ActiveRecord::Base.logger=Logger.new STDOUT
-    PgGnostic::ViewDefinition.load_declarations File.join(RAILS_ROOT,'db','views')
+    PgGnostic::ViewDefinition.load_declarations(File.join(RAILS_ROOT,'db','views'))
     PgGnostic::ViewDefinition.delete_all
   end
   desc "update views"

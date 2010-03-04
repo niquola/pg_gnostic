@@ -57,8 +57,8 @@ module PgGnostic
         end
         Dir["#{path}/*.sql"].each do |f|
           sql = IO.readlines(f,'').to_s
-          view_name="view_"<< File.basename(f,".sql")
-          create_view(view_name.to_sym,:sql=>sql)
+          view_name = File.basename(f,".sql").to_sym
+          create_view(view_name,:sql=>sql)
         end
       end
 
@@ -103,7 +103,7 @@ module PgGnostic
       end
 
       def delete(name)
-        puts "Drop view #{name}"
+        puts " * Drop view #{name}"
         ActiveRecord::Base.connection.execute "DROP VIEW IF EXISTS #{name} CASCADE;"
       end
 
@@ -118,17 +118,17 @@ module PgGnostic
       def execute(view,stack)
         if stack.include?(view)
           stack<< view
-          raise "Recursion in views dependencies \n #{stack.to_yaml}"
+          raise "e[31mERROR: Recursion in views dependencies \n #{stack.to_yaml}e[0m"
         end
         return if view[:created]
 
         if view.key? :depends_on
           view[:depends_on].each do |dep|
-            if views.key? dep
+            if views.key?(dep)
               stack<< view
               execute views[dep], stack
             else
-              raise "Could not find dependency #{dep}"
+              raise "e[31mERROR: Could not find dependency #{dep}e[0m"
             end
           end
         end
@@ -145,12 +145,12 @@ module PgGnostic
           @sql = template.result(binding)
         end
         sql = create_view_sql(view[:name],t.sql)
-        puts "Create view #{name}"
+        puts " * Create view #{name}"
         ActiveRecord::Base.transaction do
           ActiveRecord::Base.connection().execute sql;
         end
       rescue Exception=>e
-        puts "While creating #{name} #{e}"
+        puts "e[31mERROR: While creating #{name} #{e}e[0m"
         raise e
       end
 

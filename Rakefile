@@ -19,7 +19,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'PgGnostic'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
@@ -31,13 +31,13 @@ spec = Gem::Specification.new do |s|
   s.version = "0.0.1"
   s.author = "niquola"
   s.email = "niquola@gmail.com"
-  #s.homepage = ""
+  s.homepage = "http://github.com/niquola/pg_gnostic"
   s.platform = Gem::Platform::RUBY
   s.summary = "Rails plugin for postgres"
   s.files = PKG_FILES.to_a 
   s.require_path = "lib"
   s.has_rdoc = false
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.rdoc"]
 end
 
 desc 'Turn this plugin into a gem.'
