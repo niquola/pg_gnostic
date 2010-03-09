@@ -10,6 +10,7 @@ require 'active_support/test_case'
 require "rails_generator"
 require "active_record"
 require 'rails_generator/scripts/generate'
+require "test/unit"
 
 
 GEM_ROOT= path('..')
