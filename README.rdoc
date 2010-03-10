@@ -1,10 +1,8 @@
-PgGnostic
-=========
+== PgGnostic
 
 Rails and postgres deeper integration 
 
-Install
-=======
+== Install
 
 in config/environment.rb:
 
@@ -19,9 +17,20 @@ To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
   require 'pg_gnostic'
   require 'pg_gnostic/tasks'
 
-== USAGE
+== FEATURES
+
+* add pg views generator
+  scripts/generate pg_view [--format= ruby|sql] view_name [dependency_view_names]
+* rake pg: pg:drop_views, pg:functions, pg:views and all in one pg:update
+
 
 == CHANGE LIST:
+
+== TODO 
+
+* backup rake 
+* loganalize rake 
+* functions generator
 
 == LICENSE:
 
