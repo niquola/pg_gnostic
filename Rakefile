@@ -38,6 +38,7 @@ spec = Gem::Specification.new do |s|
   s.require_path = "lib"
   s.has_rdoc = false
   s.extra_rdoc_files = ["README.rdoc"]
+  s.add_dependency('kung_figure','0.0.2')
 end
 
 desc 'Turn this plugin into a gem.'

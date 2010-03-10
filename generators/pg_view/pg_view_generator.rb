@@ -1,3 +1,5 @@
+$:.unshift(path('../lib'))
+require 'pg_gnostic'
 class PgViewGenerator < Rails::Generator::Base
   default_options :format => 'ruby'
   def manifest
@@ -7,15 +9,16 @@ class PgViewGenerator < Rails::Generator::Base
         exit 1
       end
       parse_args
+      model_path = PgGnostic.config.view_model.model_path
       m.directory  File.join('db/views')
-      m.directory  File.join('app/model/views')
+      m.directory  File.join(model_path)
       case options[:format]
       when 'sql':
         m.template "view.sql", File.join('db/views',"#{@view_name}.sql"), :assigns=>@assigns 
       when 'ruby':
         m.template "view.rb", File.join('db/views',"#{@view_name}.rb"), :assigns=>@assigns
       end
-      m.template "model.rb", File.join('app/model/views',"#{@model_file_name}.rb"), :assigns=>@assigns
+      m.template "model.rb", File.join(model_path,"#{@model_file_name}.rb"), :assigns=>@assigns
     end
   end
 
@@ -28,7 +31,9 @@ class PgViewGenerator < Rails::Generator::Base
     @assigns = {
       :view_name=>@view_name,
       :class_name=>@class_name,
-      :dependencies=>@dependencies
+      :dependencies=>@dependencies, 
+      :nest_in_module=>PgGnostic.config.view_model.nest_in_module,
+      :prefix_view_name=>PgGnostic.config.view_model.prefix_view_name
     }
   end
 

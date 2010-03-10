@@ -1,14 +1,15 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
-ActiveRecord::Base.logger=Logger.new(STDOUT)
+#ActiveRecord::Base.logger=Logger.new(STDOUT)
 
 TestDbUtils.ensure_schema
 PgGnostic::ViewDefinition.load_declarations path('db/views')
 PgGnostic::ViewDefinition.update
 
-class User < PgGnostic::View
+class User < ActiveRecord::Base
+  set_table_name "view_#{table_name}"
 end
 
-class OtherUser < PgGnostic::View
+class OtherUser < ActiveRecord::Base
 end
 
 class PgGnosticViewUtilsTest < ActiveSupport::TestCase
@@ -34,7 +35,7 @@ class PgGnosticViewUtilsTest < ActiveSupport::TestCase
   end
 
   def test_sql_view
-    assert_equal 'view_other_users',OtherUser.table_name
+    assert_equal 'other_users',OtherUser.table_name
     assert_contain_field(OtherUser,'name')
     assert_not_contain_field(OtherUser,'id')
     assert_not_contain_field(OtherUser,'created_at')

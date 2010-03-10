@@ -1,10 +1,11 @@
+require 'rubygems'
+require 'kung_figure'
 def path(path)
   File.join(File.dirname(__FILE__),path)
 end
 
 $:.unshift(path('../lib'))
 require 'pg_gnostic'
-require 'rubygems'
 require 'active_support'
 require 'active_support/test_case'
 require "rails_generator"

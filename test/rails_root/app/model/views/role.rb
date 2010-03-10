@@ -1,4 +1,11 @@
-module Views
-  class Role < PgGnostic::View 
+
+ module Views
+
+  class Role < ActiveRecord::Base 
+    
+       set_table_name "view__#{table_name}"
+    
   end
-end
+
+ end
+

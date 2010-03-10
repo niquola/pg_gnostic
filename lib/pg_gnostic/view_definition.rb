@@ -118,7 +118,7 @@ module PgGnostic
       def execute(view,stack)
         if stack.include?(view)
           stack<< view
-          raise "e[31mERROR: Recursion in views dependencies \n #{stack.to_yaml}e[0m"
+          raise "ERROR: Recursion in views dependencies \n #{stack.to_yaml}"
         end
         return if view[:created]
 
@@ -128,7 +128,7 @@ module PgGnostic
               stack<< view
               execute views[dep], stack
             else
-              raise "e[31mERROR: Could not find dependency #{dep}e[0m"
+              raise "ERROR: Could not find dependency #{dep}"
             end
           end
         end
@@ -150,7 +150,7 @@ module PgGnostic
           ActiveRecord::Base.connection().execute sql;
         end
       rescue Exception=>e
-        puts "e[31mERROR: While creating #{name} #{e}e[0m"
+        puts "ERROR: While creating #{name} #{e}"
         raise e
       end
 
