@@ -69,7 +69,7 @@ namespace :pg do
 
     rescue
       $stderr.puts "It seems database #{config["database"]} already exists. Please drop it by hands (rake db:drop) before restore backup."
-      $stderr.puts $!, *($!.backtrace)
+      $stderr.puts $!
     end
   end
 
