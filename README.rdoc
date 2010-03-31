@@ -24,7 +24,9 @@ To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
 * rake pg: pg:drop_views, pg:functions, pg:views and all in one pg:update
 
 
-== CHANGE LIST:
+== CHANGE LOG:
+
+0.0.2  - backup/restore rakes
 
 == TODO 
 
