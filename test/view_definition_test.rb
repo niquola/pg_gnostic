@@ -42,4 +42,13 @@ class PgGnosticViewUtilsTest < ActiveSupport::TestCase
     assert_not_contain_field(OtherUser,'crypted_password')
     assert_not_contain_field(OtherUser,'deleted_at')
   end
+
+  def test_clear_definitions
+    pg = PgGnostic::ViewDefinition
+    assert( pg.views.length > 0, 'ensure we have declarations')
+    pg.clear_declarations
+    assert( pg.views.length == 0, 'must be clear')
+    pg.load_declarations path('db/views')
+    assert( pg.views.length > 0, 'ensure we load them again')
+  end
 end

@@ -26,9 +26,10 @@ end
 
 PKG_FILES = FileList[ '[a-zA-Z]*', 'generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
 
+require 'lib/pg_gnostic'
 spec = Gem::Specification.new do |s|
   s.name = "pg_gnostic"
-  s.version = "0.0.2"
+  s.version = PgGnostic::VERSION 
   s.author = "niquola"
   s.email = "niquola@gmail.com"
   s.homepage = "http://github.com/niquola/pg_gnostic"

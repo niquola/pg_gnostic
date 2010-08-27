@@ -27,6 +27,7 @@ To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
 == CHANGE LOG:
 
 0.0.2  - backup/restore rakes
+0.0.3  - add PgGnostic::ViewDefinition#clear_declarations  method
 
 == TODO 
 

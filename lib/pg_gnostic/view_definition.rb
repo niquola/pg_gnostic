@@ -62,6 +62,10 @@ module PgGnostic
         end
       end
 
+      def clear_declarations
+        @views={}
+      end
+
       def create_view(name,opts={})
         raise "View with name #{name} already registered" if views.key? name
         opts[:depends_on] = to_arr opts[:depends_on] if opts.key? :depends_on
