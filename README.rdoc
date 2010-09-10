@@ -28,6 +28,7 @@ To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
 
 0.0.2  - backup/restore rakes
 0.0.3  - add PgGnostic::ViewDefinition#clear_declarations  method
+0.0.4  - kung_figure dependency updated
 
 == TODO 
 
