@@ -21,8 +21,8 @@ class PgViewGenerator < Rails::Generators::Base
 
   def generate
     model_path = PgGnostic.config.view_model.model_path
-    empty_directory 'db/views'
-    empty_directory model_path
+    FileUtils.mkdir_p 'db/views'
+    FileUtils.mkdir_p model_path
     case options[:format]
       when 'sql'
         template "templates/view.sql", File.join('db/views', "#{@view_name}.sql")
