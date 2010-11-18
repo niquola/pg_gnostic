@@ -30,6 +30,7 @@ To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
 0.0.3  - add PgGnostic::ViewDefinition#clear_declarations  method
 0.0.4  - kung_figure dependency updated
 0.0.5  - compatibility with Ruby 1.9
+0.1.0  - converted to Rails 3 format. No backward compatibility with Rails 2.x
 
 == TODO 
 

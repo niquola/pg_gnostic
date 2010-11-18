@@ -1,5 +1,0 @@
-Description:
-  Generate pg view file
-
-Modules Example:
-    `./script/generate pg_view users

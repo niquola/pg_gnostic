@@ -3,7 +3,7 @@ $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname
 require 'kung_figure'
 # PgGnostic
 module PgGnostic
-  VERSION = "0.0.5"
+  VERSION = "0.1.0"
   include KungFigure
 
   autoload :ViewDefinition, 'pg_gnostic/view_definition'

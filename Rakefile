@@ -6,13 +6,13 @@ require 'rake/gempackagetask'
 desc 'Default: run unit tests.'
 task :default => :test
 
-#desc 'Test the pg_gnostic plugin.'
-#Rake::TestTask.new(:test) do |t|
-#  t.libs << 'lib'
-#  t.libs << 'test'
-#  t.pattern = 'test/**/*_test.rb'
-#  t.verbose = true
-#end
+desc 'Test the pg_gnostic plugin.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
+end
 
 desc 'Generate documentation for the pg_gnostic plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
@@ -40,6 +40,8 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = false
   s.extra_rdoc_files = ["README.rdoc"]
   s.add_dependency('kung_figure')
+  s.add_dependency('rails', '>=3.0.0')
+  s.add_development_dependency('test-unit')
 end
 
 desc 'Turn this plugin into a gem.'

@@ -39,8 +39,6 @@ class PgGnosticViewUtilsTest < ActiveSupport::TestCase
     assert_contain_field(OtherUser,'name')
     assert_not_contain_field(OtherUser,'id')
     assert_not_contain_field(OtherUser,'created_at')
-    assert_not_contain_field(OtherUser,'crypted_password')
-    assert_not_contain_field(OtherUser,'deleted_at')
   end
 
   def test_clear_definitions

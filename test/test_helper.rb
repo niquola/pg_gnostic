@@ -2,16 +2,21 @@ require 'rubygems'
 require 'kung_figure'
 
 def path(path)
-  File.join(File.dirname(__FILE__), path)
+  File.join(File.dirname(__FILE__), path).to_s
 end
 
 $:.unshift(path('../lib'))
+require "test/unit"
 require 'pg_gnostic'
 require 'active_support'
 require 'active_support/test_case'
 require "active_record"
 require 'rails'
-require "test/unit"
+require "rails/generators"
+
+#Test::Unit.run = true
+
+GEM_ROOT= path('..')
 
 class GeneratorTest < ActiveSupport::TestCase
   def read(path)
@@ -80,22 +85,6 @@ class TestDbUtils
     def drop_database
       connect_to_postgres_db
       ActiveRecord::Base.connection.drop_database config[:database]
-    end
-  end
-end
-
-if Rails::VERSION::MAJOR < 3
-  require "rails_generator"
-  require 'rails_generator/scripts/generate'
-
-  GEM_ROOT= path('..')
-  Rails::Generator::Base.default_options :collision => :ask, :quiet => false
-  Rails::Generator::Base.reset_sources
-  Rails::Generator::Base.append_sources(Rails::Generator::PathSource.new(:plugin, "#{GEM_ROOT}/generators/"))
-
-  class GeneratorTest
-    def generate(*args)
-      Rails::Generator::Scripts::Generate.new.run(args, :destination=>fake_rails_root)
     end
   end
 end
