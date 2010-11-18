@@ -24,7 +24,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
 end
 
 
-PKG_FILES = FileList[ '[a-zA-Z]*', 'generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
+PKG_FILES = FileList[ '[a-zA-Z]*', 'rails/generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
 
 require File.join(File.dirname(__FILE__), 'lib/pg_gnostic')
 spec = Gem::Specification.new do |s|
