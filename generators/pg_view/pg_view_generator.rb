@@ -1,5 +1,10 @@
 $:.unshift(path('../lib'))
 require 'pg_gnostic'
+
+unless Rails::VERSION::MAJOR < 3
+  raise "Generator now is supported only for Rails 2.3.x"
+end
+
 class PgViewGenerator < Rails::Generator::Base
   default_options :format => 'ruby'
   def manifest

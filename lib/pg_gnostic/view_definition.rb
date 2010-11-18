@@ -56,7 +56,8 @@ module PgGnostic
           load f
         end
         Dir["#{path}/*.sql"].each do |f|
-          sql = IO.readlines(f,'').to_s
+          lines = [IO.readlines(f, '')].flatten
+          sql = lines.join
           view_name = File.basename(f,".sql").to_sym
           create_view(view_name,:sql=>sql)
         end

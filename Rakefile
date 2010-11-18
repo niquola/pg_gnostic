@@ -6,13 +6,13 @@ require 'rake/gempackagetask'
 desc 'Default: run unit tests.'
 task :default => :test
 
-desc 'Test the pg_gnostic plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
+#desc 'Test the pg_gnostic plugin.'
+#Rake::TestTask.new(:test) do |t|
+#  t.libs << 'lib'
+#  t.libs << 'test'
+#  t.pattern = 'test/**/*_test.rb'
+#  t.verbose = true
+#end
 
 desc 'Generate documentation for the pg_gnostic plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
@@ -26,7 +26,7 @@ end
 
 PKG_FILES = FileList[ '[a-zA-Z]*', 'generators/**/*', 'lib/**/*', 'rails/**/*', 'tasks/**/*', 'test/**/*' ]
 
-require 'lib/pg_gnostic'
+require File.join(File.dirname(__FILE__), 'lib/pg_gnostic')
 spec = Gem::Specification.new do |s|
   s.name = "pg_gnostic"
   s.version = PgGnostic::VERSION 
