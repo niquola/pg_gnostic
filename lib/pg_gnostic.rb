@@ -9,6 +9,8 @@ module PgGnostic
   autoload :ViewDefinition, 'pg_gnostic/view_definition'
   autoload :Config, 'pg_gnostic/config'
 
+  require 'pg_gnostic/railtie'
+
   class << self
     def define
       yield ViewDefinition

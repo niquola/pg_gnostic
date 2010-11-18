@@ -12,15 +12,10 @@ and then
 
  sudo rake gems:install
 
-To install pg_gnostic rake tasks u need add this lines into  RAILS_ROOT/Rakefile
-
-  require 'pg_gnostic'
-  require 'pg_gnostic/tasks'
-
 == FEATURES
 
 * add pg views generator
-  scripts/generate pg_view [--format= ruby|sql] view_name [dependency_view_names]
+  rails generate pg_view [--format= ruby|sql] view_name [dependency_view_names]
 * rake pg: pg:drop_views, pg:functions, pg:views and all in one pg:update
 
 

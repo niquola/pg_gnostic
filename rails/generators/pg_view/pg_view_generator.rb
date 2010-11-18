@@ -1,11 +1,10 @@
-$:.unshift(path('../lib'))
 require 'pg_gnostic'
 
 class PgViewGenerator < Rails::Generators::Base
   desc "Generates pg view file"
   class_option :format, :default => 'ruby', :aliases => "-f", :banner => 'sql | ruby'
-  argument :view_name, :required => true
-  argument :dependencies, :type => :array, :required => false
+  argument :view_name, :required => true, :banner => "view name"
+  argument :dependencies, :type => :array, :required => false, :banner => "depends on views"
   source_root File.dirname(__FILE__)
 
   attr_reader :nest_in_module, :class_name, :dependencies, :prefix_view_name
