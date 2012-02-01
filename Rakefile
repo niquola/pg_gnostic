@@ -29,13 +29,13 @@ PKG_FILES = FileList[ '[a-zA-Z]*', 'rails/generators/**/*', 'lib/**/*', 'rails/*
 require File.join(File.dirname(__FILE__), 'lib/pg_gnostic')
 spec = Gem::Specification.new do |s|
   s.name = "pg_gnostic"
-  s.version = PgGnostic::VERSION 
+  s.version = PgGnostic::VERSION
   s.author = "niquola"
   s.email = "niquola@gmail.com"
   s.homepage = "http://github.com/niquola/pg_gnostic"
   s.platform = Gem::Platform::RUBY
   s.summary = "Rails plugin for postgres"
-  s.files = PKG_FILES.to_a 
+  s.files = PKG_FILES.to_a
   s.require_path = "lib"
   s.has_rdoc = false
   s.extra_rdoc_files = ["README.rdoc"]

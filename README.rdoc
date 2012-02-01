@@ -1,6 +1,6 @@
 == PgGnostic
 
-Rails and postgres deeper integration 
+Rails and postgres deeper integration
 
 == Install
 
@@ -8,7 +8,7 @@ in config/environment.rb:
 
  config.gem 'pg_gnostic'
 
-and then 
+and then
 
  sudo rake gems:install
 
@@ -28,10 +28,10 @@ and then
 0.1.0  - converted to Rails 3 format. No backward compatibility with Rails 2.x
 0.1.1  - fix problem with removing entire directory with views on rails destroy pg_view
 
-== TODO 
+== TODO
 
-* backup rake 
-* loganalize rake 
+* backup rake
+* loganalize rake
 * functions generator
 
 == LICENSE:
