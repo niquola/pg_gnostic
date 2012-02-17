@@ -77,7 +77,7 @@ namespace :pg do
   task :drop_views=>:environment do
     #ActiveRecord::Base.logger=Logger.new STDOUT
     PgGnostic::ViewDefinition.clear_declarations
-    PgGnostic::ViewDefinition.load_declarations(File.join(RAILS_ROOT,'db','views'))
+    PgGnostic::ViewDefinition.load_declarations(File.join(Rails.root,'db','views'))
     PgGnostic::ViewDefinition.delete_all
   end
 
@@ -85,13 +85,13 @@ namespace :pg do
   task :views=>:environment do
     #ActiveRecord::Base.logger=Logger.new STDOUT
     PgGnostic::ViewDefinition.clear_declarations
-    PgGnostic::ViewDefinition.load_declarations File.join(RAILS_ROOT,'db','views')
+    PgGnostic::ViewDefinition.load_declarations File.join(Rails.root,'db','views')
     PgGnostic::ViewDefinition.update
   end
 
   desc "updates functions"
   task :functions => [:environment] do
-    Dir["#{File.join(RAILS_ROOT,'db','functions')}/*.sql"].sort.each do |f|
+    Dir["#{File.join(Rails.root,'db','functions')}/*.sql"].sort.each do |f|
       begin
         puts "execute #{f}"
         sql=open(f,'r').readlines.join("\n")
