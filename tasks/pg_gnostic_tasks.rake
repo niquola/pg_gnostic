@@ -41,7 +41,7 @@ namespace :pg do
 
       file = ENV["PGBACKUP"]
       config    = ActiveRecord::Base.configurations[RAILS_ENV || 'development']
-      backupdir = get_backup_dir 
+      backupdir = get_backup_dir
       if file && File.exists?(file)
         file = file
       elsif file && File.exists?(File.join(backupdir,file))
@@ -61,7 +61,7 @@ namespace :pg do
         'port'=>config["port"],
         'username'=>config["username"]
       }.map{|k,v| "--#{k}=#{v}" if v}.join(' ')
-      unarchiver = PgGnostic.config.backup.unarchive_command 
+      unarchiver = PgGnostic.config.backup.unarchive_command
       command =  "export PGPASSWORD=#{config["password"]} && #{unarchiver} #{file} | psql #{params} -w #{config["database"]}"
       puts "Execute: #{command}"
       system command
