@@ -1,6 +1,6 @@
 == PgGnostic
 
-Rails and postgres deeper integration 
+Rails and postgres deeper integration
 
 == Install
 
@@ -8,7 +8,7 @@ in config/environment.rb:
 
  config.gem 'pg_gnostic'
 
-and then 
+and then
 
  sudo rake gems:install
 
@@ -29,10 +29,10 @@ and then
 * 0.0.3  - add PgGnostic::ViewDefinition#clear_declarations  method
 * 0.0.2  - backup/restore rakes
 
-== TODO 
+== TODO
 
-* backup rake 
-* loganalize rake 
+* backup rake
+* loganalize rake
 * functions generator
 
 == LICENSE:
